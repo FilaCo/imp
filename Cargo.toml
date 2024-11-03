@@ -8,5 +8,4 @@ members = ["crates/*"]
 
 [dependencies]
 chrono = { version = "0.4" }
-eframe = { version = "0.29", features = ["default"] }
-egui_extras = { version = "0.29", features = ["default"] }
+iced = { version = "0.13" }
