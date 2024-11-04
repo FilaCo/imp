@@ -7,5 +7,3 @@ edition = "2021"
 members = ["crates/*"]
 
 [dependencies]
-chrono = { version = "0.4" }
-iced = { version = "0.13" }
