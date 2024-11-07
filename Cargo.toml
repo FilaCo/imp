@@ -5,5 +5,6 @@ edition = "2021"
 
 [workspace]
 members = ["crates/*"]
+resolver = "2"
 
 [dependencies]
