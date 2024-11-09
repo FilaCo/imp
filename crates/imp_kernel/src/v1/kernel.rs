@@ -9,14 +9,36 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-pub mod v1;
+use thiserror::Error;
 
-pub mod prelude {
-    pub use crate::*;
+#[derive(Debug)]
+pub struct Kernel {}
+
+impl Kernel {
+    pub fn new() -> Self {
+        Self {}
+    }
+
+    pub async fn init(&mut self) -> anyhow::Result<()> {
+        Ok(())
+    }
+
+    pub async fn run(&mut self) -> anyhow::Result<()> {
+        Ok(())
+    }
 }
+
+impl Default for Kernel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+#[derive(Debug, Error)]
+pub enum KernelError {}
