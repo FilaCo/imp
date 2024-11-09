@@ -8,19 +8,20 @@
 
 IMP is a serverless peer-to-peer instant messaging protocol that aims to provide:
 
-1. Applications for majority of platforms (Windows/Linux/MacOS, Android/iOS and Web client).
-2. A simple yet powerful SDK for developing integrations, extensions or custom client applications. 
+* Applications for the majority of platforms (Windows/Linux/macOS, Android/iOS and Web client).
+* A simple yet powerful SDK for developing integrations, extensions or custom client applications.
 
 The source code of the reference implementation is published under GPLv3, the license is available [here](./LICENSE).
 
 ## WARNING
 
-IMP is in the early stages of development. Important features are missing. Documentation is sparse. Use at your own risk.
+IMP is in the early stages of development. Important features are missing. Documentation is sparse. Use at your own
+risk.
 
 ## Design goals
 
-1. **Privacy first**: Focus on ensuring the privacy of users' correspondence.
+1. **Privacy first**: Focus on ensuring the privacy of user communications.
 
 2. **Serverless**: No centralized server application required.
 
-3. **Modular**: Protocol implementation is as lightweight. All fancy things via plug'n'play extensions.
+3. **Modular**: Protocol implementation is as lightweight as possible. All the fancy stuff is distributed as plugins.

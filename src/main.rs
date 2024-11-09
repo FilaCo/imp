@@ -1,5 +1,5 @@
 /*
- * Imp, the serverless p2p-messenger.
+ * IMP, the serverless peer-to-peer instant messaging protocol.
  * Copyright (C) 2024 FilaCo
  *
  * This program is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https: //www.gnu.org/licenses/>.
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
 fn main() {

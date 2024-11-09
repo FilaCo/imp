@@ -7,5 +7,9 @@ name = "imp"
 version = "0.1.0"
 
 [[package]]
+name = "imp_kernel"
+version = "0.1.0"
+
+[[package]]
 name = "imp_plugin"
 version = "0.1.0"
