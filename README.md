@@ -13,7 +13,7 @@ IMP is a serverless peer-to-peer instant messaging protocol that aims to provide
 
 The source code of the reference implementation is published under GPLv3, the license is available [here](./LICENSE).
 
-## WARNING
+## :warning: WARNING :warning:
 
 IMP is in the early stages of development. Important features are missing. Documentation is sparse. Use at your own
 risk.

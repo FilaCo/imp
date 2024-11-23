@@ -1,3 +1,3 @@
 # IMP's Documentation
 
-This directory contains [IMP's design document](./design.md) and some internal notes.
+This directory contains [IMP's design document](design) and some internal notes.
