@@ -15,9 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use imp_runtime::prelude::*;
+mod entity;
+mod vo;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    Runtime::default().run().await
+pub mod prelude {
+    pub use crate::{entity::*, vo::*};
+
+    #[cfg(feature = "derive")]
+    pub use imp_ddd_derive::*;
 }

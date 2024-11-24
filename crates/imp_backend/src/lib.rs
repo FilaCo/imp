@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use imp_runtime::prelude::*;
+mod app;
+mod domain;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    Runtime::default().run().await
+pub mod prelude {
+    pub use crate::app::*;
 }

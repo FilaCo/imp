@@ -1,0 +1,12 @@
+[package]
+name = "imp_ddd"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+imp_ddd_derive = { path = "../imp_ddd_derive", version = "1", optional = true }
+
+[features]
+default = ["derive"]
+
+derive = ["imp_ddd_derive"]

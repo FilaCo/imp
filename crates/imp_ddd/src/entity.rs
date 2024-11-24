@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use imp_runtime::prelude::*;
+use crate::prelude::VO;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    Runtime::default().run().await
+pub trait Entity: PartialEq + Eq {
+    type Id: VO + PartialEq + Eq;
+
+    fn id(&self) -> &Self::Id;
 }

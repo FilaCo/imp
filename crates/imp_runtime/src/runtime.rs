@@ -15,9 +15,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use imp_runtime::prelude::*;
+use thiserror::Error;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    Runtime::default().run().await
+#[derive(Debug, Copy, Clone)]
+pub struct Runtime {}
+
+impl Runtime {
+    pub fn new() -> Self {
+        Self {}
+    }
+
+    pub async fn init(&mut self) -> anyhow::Result<()> {
+        Ok(())
+    }
+
+    pub async fn run(&mut self) -> anyhow::Result<()> {
+        Ok(())
+    }
 }
+
+impl Default for Runtime {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+#[derive(Debug, Error)]
+pub enum Error {}

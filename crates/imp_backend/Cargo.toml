@@ -1,0 +1,10 @@
+[package]
+name = "imp_backend"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+imp_ddd = { path = "../imp_ddd", version = "1" }
+
+thiserror = { workspace = true }
+uuid = { workspace = true, features = ["fast-rng", "v7"] }
