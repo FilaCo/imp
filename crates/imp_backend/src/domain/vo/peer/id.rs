@@ -15,13 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-mod entity;
-mod version;
-mod vo;
+use imp_ddd::prelude::*;
+use uuid::Uuid;
 
-pub mod prelude {
-    pub use crate::{entity::*, version::*, vo::*};
+#[derive(VO, Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
+pub struct Id(Uuid);
 
-    #[cfg(feature = "derive")]
-    pub use imp_ddd_derive::*;
+impl Id {
+    pub fn new() -> Self {
+        Self(Uuid::now_v7())
+    }
+}
+
+impl Default for Id {
+    fn default() -> Self {
+        Self::new()
+    }
 }

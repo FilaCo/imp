@@ -15,10 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use crate::prelude::VO;
+use crate::prelude::*;
 
 pub trait Entity: PartialEq + Eq {
     type Id: VO + PartialEq + Eq;
+    type Event;
 
     fn id(&self) -> &Self::Id;
+
+    fn version(&self) -> &Version;
 }

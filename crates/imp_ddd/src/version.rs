@@ -15,13 +15,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-mod entity;
-mod version;
-mod vo;
+use std::num::NonZeroU128;
 
-pub mod prelude {
-    pub use crate::{entity::*, version::*, vo::*};
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
+pub struct Version(NonZeroU128);
 
-    #[cfg(feature = "derive")]
-    pub use imp_ddd_derive::*;
+impl Version {
+    pub fn new() -> Self {
+        Self(NonZeroU128::MIN)
+    }
+
+    pub fn increment(&mut self) -> Option<&mut Self> {
+        self.0 = self.0.checked_add(1)?;
+
+        Some(self)
+    }
+}
+
+impl Default for Version {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl From<NonZeroU128> for Version {
+    fn from(value: NonZeroU128) -> Self {
+        Self(value)
+    }
 }

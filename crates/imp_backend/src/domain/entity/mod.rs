@@ -16,3 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 mod message;
+mod peer;
+
+pub use message::*;
+pub use peer::*;

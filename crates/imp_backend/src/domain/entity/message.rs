@@ -15,11 +15,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
+use crate::domain::entity::Peer;
 use crate::domain::vo::message::*;
+use chrono::{DateTime, Utc};
 use imp_ddd::prelude::*;
+use std::sync::Arc;
 
-#[derive(Debug, Entity)]
+#[derive(Debug, Clone)]
 pub struct Message {
-    #[entity(id)]
     id: Id,
+    text: String,
+    author: Arc<Peer>,
+
+    version: Version,
+    created_at: DateTime<Utc>,
+    updated_at: DateTime<Utc>,
 }
+
+impl Message {}
+
+#[derive(Debug, Copy, Clone)]
+pub enum Event {}

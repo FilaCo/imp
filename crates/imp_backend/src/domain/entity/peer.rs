@@ -15,13 +15,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-mod entity;
-mod version;
-mod vo;
+use crate::domain::entity::Message;
+use crate::domain::vo::peer::*;
+use chrono::{DateTime, Utc};
+use imp_ddd::prelude::*;
+use thiserror::Error;
 
-pub mod prelude {
-    pub use crate::{entity::*, version::*, vo::*};
+#[derive(Debug, Copy, Clone)]
+pub struct Peer {
+    id: Id,
 
-    #[cfg(feature = "derive")]
-    pub use imp_ddd_derive::*;
+    version: Version,
+    created_at: DateTime<Utc>,
+    updated_at: DateTime<Utc>,
 }
+
+impl Peer {}
+
+#[derive(Debug, Copy, Clone)]
+pub enum Event {}
+
+#[derive(Debug, Copy, Clone, Error)]
+pub enum Error {}

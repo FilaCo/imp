@@ -12,19 +12,38 @@ pub fn derive_entity(input: TokenStream) -> TokenStream {
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
     let data = input.data;
-    let target_attr: Attribute = parse_quote!(#[entity(id)]);
+    let field_id_target_attr: Attribute = parse_quote!(#[entity(id)]);
     let (field_id_name, field_id_ty) = match data {
         Data::Struct(ref data) => match data.fields {
             Fields::Named(ref fields) => {
                 let field_id = fields
                     .named
                     .iter()
-                    .filter(|f| f.attrs.contains(&target_attr))
+                    .filter(|f| f.attrs.contains(&field_id_target_attr))
                     .take(1)
                     .next()
                     .expect("id field not found");
 
                 (&field_id.ident, &field_id.ty)
+            }
+            _ => unimplemented!(),
+        },
+        _ => unimplemented!(),
+    };
+
+    let field_version_target_attr: Attribute = parse_quote!(#[entity(version)]);
+    let (field_version_name, field_version_ty) = match data {
+        Data::Struct(ref data) => match data.fields {
+            Fields::Named(ref fields) => {
+                let field_version = fields
+                    .named
+                    .iter()
+                    .filter(|f| f.attrs.contains(&field_version_target_attr))
+                    .take(1)
+                    .next()
+                    .expect("version field not found");
+
+                (&field_version.ident, &field_version.ty)
             }
             _ => unimplemented!(),
         },
@@ -37,6 +56,10 @@ pub fn derive_entity(input: TokenStream) -> TokenStream {
 
             fn id(&self) -> &Self::Id {
                 &self.#field_id_name
+            }
+
+            fn version(&self) -> &#field_version_ty {
+                &self.#field_version_name
             }
         }
 

@@ -40,5 +40,5 @@ impl Default for Runtime {
     }
 }
 
-#[derive(Debug, Error)]
+#[derive(Debug, Copy, Clone, Error)]
 pub enum Error {}
