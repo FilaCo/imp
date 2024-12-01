@@ -15,6 +15,5 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-
-#[derive(Debug, Copy, Clone)]
-pub struct Facade {}
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+pub enum Message {}

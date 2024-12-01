@@ -15,16 +15,4 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-
-pub trait Plugin {}
-
-#[derive(Debug, Clone)]
-pub struct Meta {
-    name: String,
-    version: Version,
-}
-
-impl Meta {}
-
-#[derive(Debug, Copy, Clone)]
-pub struct Version {}
+mod peer;

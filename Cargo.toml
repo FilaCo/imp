@@ -1,21 +1,32 @@
 [package]
 name = "imp"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 
 [workspace]
 members = ["crates/*"]
 resolver = "2"
 
+[profile.dev.package."*"]
+opt-level = 3
+
 [workspace.dependencies]
 anyhow = { version = "1" }
-serde = { version = "1" }
 thiserror = { version = "2" }
-tokio = { version = "1" }
-uuid = { version = "1" }
 
 [dependencies]
-imp_runtime = { path = "crates/imp_runtime", version = "1" }
-
 anyhow = { workspace = true }
-tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
+cfg-if = { version = "1" }
+crossterm = { version = "0.28", optional = true }
+iced = { version = "0.13", optional = true }
+imp_message = { version = "1", path = "crates/imp_message" }
+ratatui = { version = "0.29", optional = true }
+redb = { version = "2" }
+thiserror = { workspace = true }
+tracing-subscriber = { version = "0.3" }
+
+[features]
+default = ["gui"]
+headless = []
+gui = ["headless", "iced"]
+tui = ["crossterm", "headless", "ratatui"]

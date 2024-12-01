@@ -1,7 +1,0 @@
-[package]
-name = "imp_plugin_manager"
-version = "1.0.0"
-edition = "2021"
-
-[dependencies]
-imp_plugin = { path = "../imp_plugin", version = "1" }

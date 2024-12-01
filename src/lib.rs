@@ -15,13 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-mod entity;
-mod version;
-mod vo;
+mod app;
+mod domain;
+mod infra;
+mod util;
 
-pub mod prelude {
-    pub use crate::{entity::*, version::*, vo::*};
-
-    #[cfg(feature = "derive")]
-    pub use imp_ddd_derive::*;
-}
+pub use app::*;

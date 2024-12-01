@@ -1,5 +1,5 @@
 [package]
-name = "imp_plugin"
+name = "imp_message"
 version = "1.0.0"
 edition = "2021"
 

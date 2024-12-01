@@ -15,20 +15,3 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use imp_ddd::prelude::*;
-use uuid::Uuid;
-
-#[derive(VO, Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
-pub struct Id(Uuid);
-
-impl Id {
-    pub fn new() -> Self {
-        Self(Uuid::now_v7())
-    }
-}
-
-impl Default for Id {
-    fn default() -> Self {
-        Self::new()
-    }
-}

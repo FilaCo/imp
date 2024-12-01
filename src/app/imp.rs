@@ -15,31 +15,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use std::num::NonZeroU128;
+use cfg_if::cfg_if;
+use iced::*;
+use imp_message::*;
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
-pub struct Version(NonZeroU128);
+#[derive(Debug, Copy, Clone)]
+pub enum Imp {
+    Loading,
+    Loaded(State),
+}
 
-impl Version {
-    pub fn new() -> Self {
-        Self(NonZeroU128::MIN)
+impl Imp {
+    pub fn new() -> (Self, Task<Message>) {
+        todo!()
     }
 
-    pub fn increment(&mut self) -> Option<&mut Self> {
-        self.0 = self.0.checked_add(1)?;
+    pub fn update(&mut self, msg: Message) {
+        match msg {}
+    }
 
-        Some(self)
+    cfg_if! {
+        if #[cfg(feature = "gui")] {
+            pub fn view(&self) -> Element<Message> {
+                todo!()
+            }
+
+            pub fn title(&self) -> String {
+                todo!()
+            }
+        } else if #[cfg(feature = "tui")] {
+            pub fn view(&self) {}
+        }
     }
 }
 
-impl Default for Version {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl From<NonZeroU128> for Version {
-    fn from(value: NonZeroU128) -> Self {
-        Self(value)
-    }
-}
+#[derive(Debug, Copy, Clone)]
+pub struct State {}
