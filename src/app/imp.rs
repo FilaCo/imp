@@ -15,39 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-use cfg_if::cfg_if;
 use iced::*;
 use imp_message::*;
 
 #[derive(Debug, Copy, Clone)]
-pub enum Imp {
-    Loading,
-    Loaded(State),
-}
+pub struct Imp {}
 
 impl Imp {
     pub fn new() -> (Self, Task<Message>) {
         todo!()
     }
 
-    pub fn update(&mut self, msg: Message) {
+    pub fn update(&mut self, msg: Message) -> Task<Message> {
         match msg {}
     }
 
-    cfg_if! {
-        if #[cfg(feature = "gui")] {
-            pub fn view(&self) -> Element<Message> {
-                todo!()
-            }
+    pub fn view(&self) -> Element<Message> {
+        todo!()
+    }
 
-            pub fn title(&self) -> String {
-                todo!()
-            }
-        } else if #[cfg(feature = "tui")] {
-            pub fn view(&self) {}
-        }
+    pub fn title(&self) -> String {
+        todo!()
     }
 }
-
-#[derive(Debug, Copy, Clone)]
-pub struct State {}

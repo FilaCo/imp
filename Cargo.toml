@@ -1,6 +1,6 @@
 [package]
 name = "imp"
-version = "1.0.0"
+version = "0.1.0"
 edition = "2021"
 
 [workspace]
@@ -17,6 +17,7 @@ thiserror = { version = "2" }
 [dependencies]
 anyhow = { workspace = true }
 cfg-if = { version = "1" }
+chrono = { version = "0.4" }
 crossterm = { version = "0.28", optional = true }
 iced = { version = "0.13", optional = true }
 imp_message = { version = "1", path = "crates/imp_message" }
@@ -24,6 +25,7 @@ ratatui = { version = "0.29", optional = true }
 redb = { version = "2" }
 thiserror = { workspace = true }
 tracing-subscriber = { version = "0.3" }
+uuid = { version = "1", features = ["fast-rng", "v4", "v7"] }
 
 [features]
 default = ["gui"]

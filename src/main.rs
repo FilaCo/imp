@@ -21,13 +21,7 @@ fn main() -> anyhow::Result<()> {
     #[cfg(not(target_arch = "wasm32"))]
     tracing_subscriber::fmt::init();
 
-    if cfg!(feature = "gui") {
-        iced::application(Imp::title, Imp::update, Imp::view).run_with(Imp::new)?;
+    iced::application(Imp::title, Imp::update, Imp::view).run_with(Imp::new)?;
 
-        Ok(())
-    } else if cfg!(feature = "tui") {
-        unimplemented!()
-    } else {
-        unimplemented!()
-    }
+    Ok(())
 }
