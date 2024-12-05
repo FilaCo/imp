@@ -2,28 +2,34 @@
 name = "imp"
 version = "0.1.0"
 edition = "2021"
-
-[workspace]
-members = ["crates/*"]
-resolver = "2"
+authors = ["FilaCo <awesome.chekushka@gmail.com>"]
+license = "GPL-3"
+readme = "README.md"
+keywords = ["instant-messaging", "messaging", "peer-to-peer", "p2p"]
+repository = "https://github.com/FilaCo/imp"
+documentation = "https://docs.rs/imp"
+description = """
+IMP is a serverless peer-to-peer instant messaging protocol that aims to provide:
+1. Applications for the majority of platforms (Windows/Linux/macOS, Android/iOS and Web client).
+2. A simple yet powerful SDK for developing integrations, extensions or custom client applications.
+"""
+exclude = [".github/", ".husky/", ".commitlintrc.json", ".releaserc.json", "package-*.json"]
 
 [profile.dev.package."*"]
 opt-level = 3
 
-[workspace.dependencies]
-anyhow = { version = "1" }
-thiserror = { version = "2" }
-
 [dependencies]
-anyhow = { workspace = true }
+anyhow = { version = "1" }
+bytes = { version = "1" }
 cfg-if = { version = "1" }
 chrono = { version = "0.4" }
 crossterm = { version = "0.28", optional = true }
 iced = { version = "0.13", optional = true }
-imp_message = { version = "1", path = "crates/imp_message" }
+# iceoryx2 = { version = "0.4" }
+libp2p = { version = "0.54" }
 ratatui = { version = "0.29", optional = true }
 redb = { version = "2" }
-thiserror = { workspace = true }
+thiserror = { version = "2" }
 tracing-subscriber = { version = "0.3" }
 uuid = { version = "1", features = ["fast-rng", "v4", "v7"] }
 

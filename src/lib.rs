@@ -15,9 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-mod app;
-mod domain;
-mod infra;
-mod util;
+#[cfg(feature = "gui")]
+mod gui;
+#[cfg(feature = "headless")]
+mod message;
+#[cfg(feature = "headless")]
+mod model;
 
-pub use app::*;
+pub use gui::*;
+pub use message::*;
+pub use model::*;
